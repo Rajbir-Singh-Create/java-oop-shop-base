@@ -1,2 +1,4 @@
 .vscode/settings.json
 bin/App.class
+bin/Prodotto.class
+bin/Main.class
