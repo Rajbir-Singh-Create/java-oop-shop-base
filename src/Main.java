@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) throws Exception {
-        Prodotto pizza = new Prodotto();
+        Prodotto pizza = new Prodotto(100);
 
         pizza.nome = "Pizza al salame";
         pizza.prezzo = 7.5f;

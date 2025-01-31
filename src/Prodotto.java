@@ -8,9 +8,8 @@ public class Prodotto {
     public float iva;
 
     // Costruttore che genera il codice in maniera random
-    public Prodotto(){
+    public Prodotto(int max){
         Random r = new Random();
-        int max = 1000;
         codice = r.nextInt(max);
     }
 
