@@ -14,7 +14,8 @@ public class Prodotto {
     }
 
     // Metodo che espone il prezzo base del prodotto
-    public float getBasePrice(){
+    public float getBasePrice(float prezzo){
+        this.prezzo = prezzo;
         return prezzo;
     }
 
