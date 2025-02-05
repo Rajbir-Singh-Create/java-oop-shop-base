@@ -4,30 +4,51 @@ public class Prodotto {
     public int codice;
     public String nome;
     public String descrizione;
-    public float prezzo;
-    public float iva;
+    public double prezzo;
+    public double iva;
 
-    // Costruttore che genera il codice in maniera random
-    public Prodotto(int max){
+    public Prodotto(String nome, double prezzo, double iva){
+        calcolaCodice();
+        
+        if (nome != null){
+            this.nome = nome;
+        } else {
+            System.out.println("Inserisci un nome valido");
+        }
+        
+        if (prezzo > 0){
+            this.prezzo = prezzo;
+        } else {
+            System.out.println("Impossibile impostare un prezzo minore o uguale a 0");
+        }
+
+        if (iva == 1.04 || iva == 1.1 || iva == 1.22){
+            this.iva = iva;    
+        } else {
+            System.out.println("Impossibile impostare un iva non convenzionale.");
+        }
+        
+    }
+
+    // Metodo che genera il codice in maniera random
+    public void calcolaCodice(){
         Random r = new Random();
-        codice = r.nextInt(max);
+        codice = r.nextInt(100);
     }
 
     // Metodo che espone il prezzo base del prodotto
-    public float getBasePrice(float prezzo){
-        this.prezzo = prezzo;
-        return prezzo;
+    public double getBasePrice(){
+        return this.prezzo;
     }
 
     // Metodo che calcola il prezzo compreso di iva
-    public float setPriceWithIva(){
-        iva = 22;
-        return prezzo = prezzo + (prezzo*iva) / 100;
+    public double getPriceWithIva(){
+        return this.prezzo * this.iva;
     }
 
     // Metodo che espone il nome esteso
     // concatenando codice e nome
     public String getExtendedProductName(){
-        return nome = codice + "-" + nome;
+        return this.codice + "-" + this.nome;
     }
 }
