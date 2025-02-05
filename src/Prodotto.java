@@ -1,11 +1,11 @@
 import java.util.Random;
 
 public class Prodotto {
-    public int codice;
-    public String nome;
-    public String descrizione;
-    public double prezzo;
-    public double iva;
+    private int codice;
+    private String nome;
+    private String descrizione;
+    private double prezzo;
+    private double iva;
 
     public Prodotto(String nome, double prezzo, double iva){
         calcolaCodice();
@@ -33,7 +33,11 @@ public class Prodotto {
     // Metodo che genera il codice in maniera random
     public void calcolaCodice(){
         Random r = new Random();
-        codice = r.nextInt(100);
+        this.codice = r.nextInt(100);
+    }
+
+    public int getCodice(){
+        return this.codice;
     }
 
     // Metodo che espone il prezzo base del prodotto
@@ -49,6 +53,6 @@ public class Prodotto {
     // Metodo che espone il nome esteso
     // concatenando codice e nome
     public String getExtendedProductName(){
-        return this.codice + "-" + this.nome;
+        return this.getCodice() + "-" + this.nome;
     }
 }
